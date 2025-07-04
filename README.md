@@ -17,6 +17,15 @@
 
 - install react redus+toolkit =>configureStore => Provider to application=> createSlice =>add reducer to store
 
+- Add redux deVtools in chrome
+- Login and see if your data is coming properly in the store
+- Navbar should update as soon as user Logs In
+- Refactor our code to add constants file + create components folder
+- you should not be access to other routes without login
+- if token is not present ,redirect user to login page
+- Logout
+- Profile
+
 
 
 
