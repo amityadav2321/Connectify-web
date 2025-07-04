@@ -10,6 +10,7 @@ const Login = () => {
 
   const [emailId,setEmailId]=useState("amit@gmail.com");
   const [password,setPassword ]=useState("Amit@123");
+  const [error,setError]=useState();
   const dispatch=useDispatch();
   const navigate=useNavigate();
 
@@ -24,6 +25,7 @@ const Login = () => {
        return navigate("/")
      } 
      catch(err){
+      setError(err?.response?.data || "something went wrong")
       console.error(err);
      }
   };
@@ -34,18 +36,20 @@ const Login = () => {
         <div className="card bg-base-300 w-96 shadow-sm">
         <div className="card-body">
         <h2 className="card-title justify-center">Login</h2>
-        <div className='justify-center px-3'>
-            <fieldset className="fieldset">
-            <legend className="fieldset-legend">Email ID</legend>
-            <input className="input validator " value={emailId} onChange={(e)=>setEmailId(e.target.value)} type="email" required placeholder="email@gmail.com" />
-            
-            </fieldset>
-            <fieldset className="fieldset">
+        <div>
+          <fieldset className="fieldset pt-2">
+            <legend className="fieldset-legend">Email Id</legend>
+            <input type="text" className="input" placeholder="Email Id" value={emailId} onChange={(e)=>setEmailId(e.target.value)} />
+           
+          </fieldset>
+          <fieldset className="fieldset pt-2">
             <legend className="fieldset-legend pt-5">Password</legend>
-            <input type="password" value={password} className="input validator" onChange={(e)=>setPassword(e.target.value)} required placeholder="Password" minLength="8" />
-            </fieldset>
+            <input type="password" className="input" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password" />
+            
+          </fieldset>
         </div>
-        <div className="card-actions justify-center pt-5">
+        <p className='text-red-500'>{error}</p>
+        <div className="card-actions justify-center ">
         <button className="btn btn-primary " onClick={handleLogin}>Login</button>
         </div>
         </div>
