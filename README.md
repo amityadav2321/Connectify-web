@@ -23,8 +23,10 @@
 - Refactor our code to add constants file + create components folder
 - you should not be access to other routes without login
 - if token is not present ,redirect user to login page
-- Logout
-- Profile
+- Logout feature
+- got the feed and add the feed in the store
+- build the user card on feed
+- edit pofile feature and toast message when saving profile
 
 
 
