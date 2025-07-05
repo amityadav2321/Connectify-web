@@ -27,6 +27,10 @@
 - got the feed and add the feed in the store
 - build the user card on feed
 - edit pofile feature and toast message when saving profile
+-  new page - see all connetion request
+- new page - see all my connections request
+- accept / reject connection request
+- 
 
 
 

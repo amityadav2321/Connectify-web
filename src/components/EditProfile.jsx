@@ -68,7 +68,7 @@ const EditProfile = ({ user }) => {
   return (
     <div className="flex justify-center items-start gap-10 px-4 py-6 text-white">
       {/* User Preview Card */}
-      <UserCard user={{ firstName, lastName, about, age, photoUrl, gender, skills }} />
+      <UserCard showActions={false} user={{ firstName, lastName, about, age, photoUrl, gender, skills }} />
 
       {/* Edit Form */}
       <div className="flex justify-center">

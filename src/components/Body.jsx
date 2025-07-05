@@ -29,12 +29,13 @@ const Body = () => {
       fetchUser();
     },[])
   return (
-    <div>
+   <div className="min-h-screen flex flex-col">
       <NavBar />
-      
-      
+
+      {/* This pushes Footer to bottom if content is short */}
+      <main className="flex-1">
         <Outlet />
-      
+      </main>
 
       <Footer />
     </div>

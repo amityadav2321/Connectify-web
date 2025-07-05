@@ -31,11 +31,11 @@ const Connections = () => {
 
   return <div>
   
-  <div className=' text-center my-10'>
+  <div className=' text-center my-10 '>
     <h1 className="text-2xl ">Connections</h1>
   </div>
 
-  <div className="flex flex-wrap justify-center gap-6 px-4">
+  <div className="flex flex-wrap justify-center gap-6 px-4 mb-10">
   {connections.map((connection) => (
     <UserCard key={connection._id} user={connection} showActions={false} />
   ))}
