@@ -63,3 +63,42 @@ Body
 - connect to machine with ssh cmd
 - install node version present locally
 - git clone
+- Frontend
+      - npm install -> dependencies install
+      - npm run build
+      - sudo apt update
+      - sudo apt install nginx
+      - sudo systemctl start nginx
+      - copy code from dist(build files) to /var/www/html/
+      - sudo scp -r dist/* /var/wwww/html/
+      - enable port :80 on your instance
+- Backend
+      - allowed ec2 instance public IP on mongo server 
+      - installed  npm install pm2 -g
+      - pm2 start npm --name "Connectify-backend" -- start
+      - pm2 logs to check what happen
+      - pm2 flush,pm2 list, pm2 stop npm , pm2 delete npm
+      - config nginx - /etc/nginx/sites-available/default
+      -restart nginx - sudo systemctl restart nginx
+- modify BASE_URL in frontend project to "/api"
+
+
+
+
+
+
+Frontend: http://13.126.221.130/
+Backend: http://13.126.221.130:3000/
+
+
+- nginx config:
+
+server_name 13.126.221.130;
+ location /api/ {
+        proxy_pass http://localhost:3000/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
