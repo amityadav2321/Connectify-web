@@ -32,7 +32,7 @@ const NavBar = () => {
   </div>
 
   {/* Right side: Welcome and avatar (only if logged in) */}
-  {user && (
+  {user?.firstName && (
     <div className="flex gap-2 items-center px-4">
       <div className="form-control pt-2.5">Welcome, {user.firstName}</div>
       <div className="dropdown dropdown-end mx-5 flex">
