@@ -27,7 +27,7 @@ const ChangePassword = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-base-200">
+    <div className="flex justify-center items-start min-h-screen pt-20 bg-base-200">
       <div className="card w-full max-w-md bg-base-100 shadow-md p-6">
         <h2 className="text-2xl font-semibold mb-4 text-center">Change Password</h2>
         

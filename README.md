@@ -32,6 +32,7 @@
 - accept / reject connection request
 - send and ignored the user from feed
 - signup new user
+- 
 
 
 
@@ -61,3 +62,4 @@ Body
 - chmod 400 <secret>.pem
 - connect to machine with ssh cmd
 - install node version present locally
+- git clone
