@@ -30,7 +30,8 @@
 -  new page - see all connetion request
 - new page - see all my connections request
 - accept / reject connection request
-- 
+- send and ignored the user from feed
+- signup new user
 
 
 
@@ -51,3 +52,12 @@ Body
     Route=/Connections   =>Connections
     Route=/profile  =>profile
     
+
+
+# Deployment
+
+- Signup on AWS
+- Launch instance in E2C
+- chmod 400 <secret>.pem
+- connect to machine with ssh cmd
+- install node version present locally

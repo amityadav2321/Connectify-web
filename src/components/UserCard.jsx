@@ -1,7 +1,12 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { BASE_URL } from '../utils/constants';
+import { useDispatch } from 'react-redux';
+import { removeFeed } from '../utils/feedSlice';
 
 const UserCard = ({ user ,showActions=true}) => {
   const {
+    _id,
     firstName,
     lastName,
     age,
@@ -11,8 +16,18 @@ const UserCard = ({ user ,showActions=true}) => {
     photoUrl
   } = user;
 
+  const dispatch=useDispatch();
+
   const [showAllSkills, setShowAllSkills] = useState(false);
 
+  const handleSendRequest=async(status,userId)=>{
+     try {
+      const res = await axios.post(BASE_URL+"/request/send/"+status+"/"+userId,{},{withCredentials:true});
+      dispatch(removeFeed(userId));
+    }catch(err){
+
+      }
+  }
   // Limit about text to ~100 characters
   const truncatedAbout =
     about.length > 100 ? `${about.slice(0, 100)}...` : about;
@@ -20,11 +35,11 @@ const UserCard = ({ user ,showActions=true}) => {
   const shownSkills = showAllSkills ? skills : skills.slice(0, 3);
   const remainingSkillCount = skills.length - 3;
 
-  return (
+  return (<div className='justify-center'>
     <div className="card w-96 bg-gray-900/80 text-white shadow-lg backdrop-blur-md border border-gray-700 rounded-xl">
       <figure className="flex justify-center pt-6">
         <img
-          src={photoUrl}
+          src={photoUrl  || "/default-avatar.png"}
           alt="Profile"
           className="w-40 h-40 rounded-xl object-cover border-[2px] shadow-lg transition-transform duration-300 hover:scale-105"
         />
@@ -72,14 +87,15 @@ const UserCard = ({ user ,showActions=true}) => {
         )}
 
         {showActions&&(<div className="flex justify-between gap-4 pt-4">
-          <button className="btn btn-outline btn-success flex-1">
+          <button className="btn btn-outline btn-success flex-1" onClick={()=>handleSendRequest("interested",_id)}>
             Interested
           </button>
-          <button className="btn btn-outline btn-error flex-1">
+          <button className="btn btn-outline btn-error flex-1" onClick={()=>handleSendRequest("ignored",_id)}>
             Ignore
           </button>
         </div>)}
       </div>
+    </div>
     </div>
   );
 };
