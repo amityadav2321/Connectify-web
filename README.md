@@ -1,4 +1,4 @@
-# DevTinder
+# Connectify
 - Create a vite + React application
 - Remove unwanted files and create a Hello World app
 - Install tailwind css
