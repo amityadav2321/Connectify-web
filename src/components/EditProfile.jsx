@@ -31,21 +31,27 @@ const EditProfile = ({ user }) => {
     }
   }, [user]);
 
-  const saveProfile = async () => {
-    setError("");
-    try {
-      const res = await axios.patch(
-        BASE_URL + "/profile/edit",
-        { firstName, lastName, about, age, photoUrl, gender, skills },
-        { withCredentials: true }
-      );
-      dispatch(addUser(res?.data?.data));
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 3000);
-    } catch (err) {
-      setError(err.response?.data || "Something went wrong");
-    }
-  };
+ const saveProfile = async () => {
+  setError("");
+  try {
+    await axios.patch(
+      BASE_URL + "/profile/edit",
+      { firstName, lastName, about, age, photoUrl, gender, skills },
+      { withCredentials: true }
+    );
+
+    // ✅ Fetch fresh data to ensure all fields sync correctly
+    const response = await axios.get(BASE_URL + "/profile/view", { withCredentials: true });
+    dispatch(addUser(response.data)); // CORRECT ✅
+ // Fully up-to-date profile
+
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  } catch (err) {
+    setError(err.response?.data || "Something went wrong");
+  }
+};
+
 
   const handleAddSkill = () => {
     const trimmedSkill = skillInput.trim();

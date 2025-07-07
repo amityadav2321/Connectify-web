@@ -52,7 +52,7 @@ useEffect(()=>{
 
             return(
                 <div>
-                <div key={_id}className='rounded-lg bg-base-300 w-2/4 mx-auto flex  m-5 p-3 justify-center items-center'>
+                <div key={_id} className='rounded-lg bg-base-300 w-2/4 mx-auto flex  m-5 p-3 justify-center items-center'>
                     <div>
                         <img src={photoUrl} alt="photo" className='w-20 h-20 rounded-full' />
                     </div>

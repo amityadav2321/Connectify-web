@@ -17,6 +17,7 @@ const NavBar = () => {
         return navigate("/login")
       } catch (err) {
         //ERROR Page
+        console.log(err);
       }
   }
 
@@ -33,8 +34,8 @@ const NavBar = () => {
 
   {/* Right side: Welcome and avatar (only if logged in) */}
   {user?.firstName && (
-    <div className="flex gap-2 items-center px-4">
-      <div className="form-control pt-2.5">Welcome, {user.firstName}</div>
+    <div className="flex gap-1 items-center px-4">
+      <div className="form-control pt-2.">Welcome, {user.firstName}</div>
       <div className="dropdown dropdown-end mx-5 flex">
         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
           <div className="w-10 rounded-full">

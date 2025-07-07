@@ -9,13 +9,13 @@ const Connections = () => {
     const connections=useSelector((store)=>store.connections)
     const dispatch=useDispatch();
 
-    const fetchConnections=async()=>{
+    const fetchConnections = async () =>{
         try {
-        const res= await axios.get(BASE_URL+"/user/connections",{withCredentials:true});
+        const res = await axios.get(BASE_URL+"/user/connections",{withCredentials:true});
         
         dispatch(addConnections(res?.data?.data));
         } catch (err) {
-            
+            console.error(err);
         }
         
     }
