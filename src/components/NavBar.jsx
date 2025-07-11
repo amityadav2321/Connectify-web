@@ -20,6 +20,10 @@ const NavBar = () => {
         console.log(err);
       }
   }
+  useEffect(() => {
+  console.log("Redux User State:", user);
+}, [user]);
+
 
   return (
     
@@ -38,9 +42,16 @@ const NavBar = () => {
       <div className="form-control pt-2.">Welcome, {user.firstName}</div>
       <div className="dropdown dropdown-end mx-5 flex">
         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            <img alt="user photo" src={user.photoUrl} />
-          </div>
+          <div className="w-10 rounded-full overflow-hidden">
+  <img
+    key={user?.photoUrl} // 🔁 Ensures re-render when photoUrl changes
+    src={user?.photoUrl || "/user-profile.png"} // ✅ Fallback if missing
+    onError={(e) => (e.target.src = "/user-profile.png")} // 🚨 Handle broken image links
+    alt="user photo"
+    className="w-full h-full object-cover"
+  />
+</div>
+
         </div>
         <ul
           tabIndex={0}
