@@ -25,7 +25,8 @@ const Login = () => {
           emailId,
           password,
         }, { withCredentials: true });
-        dispatch(addUser(res.data));
+        console.log("User data to add:", res.data.user);
+        dispatch(addUser(res.data.user));
         return navigate("/");
       } else {
         const res = await axios.post(BASE_URL + "/signup", {
