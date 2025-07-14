@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { BASE_URL } from '../utils/constants';
 import { useDispatch } from 'react-redux';
 import { removeFeed } from '../utils/feedSlice';
+import { Link } from 'react-router-dom';
 
 const UserCard = ({ user ,showActions=true}) => {
   const {
@@ -86,14 +87,32 @@ const UserCard = ({ user ,showActions=true}) => {
           </div>
         )}
 
-        {showActions&&(<div className="flex justify-between gap-4 pt-4">
-          <button className="btn btn-outline btn-success flex-1" onClick={()=>handleSendRequest("interested",_id)}>
-            Interested
-          </button>
-          <button className="btn btn-outline btn-error flex-1" onClick={()=>handleSendRequest("ignored",_id)}>
-            Ignore
-          </button>
-        </div>)}
+        {showActions ? (
+  <div className="flex justify-between gap-4 pt-4">
+    <button
+      className="btn btn-outline btn-success flex-1"
+      onClick={() => handleSendRequest("interested", _id)}
+    >
+      Interested
+    </button>
+    <button
+      className="btn btn-outline btn-error flex-1"
+      onClick={() => handleSendRequest("ignored", _id)} >
+      Ignore
+    </button>
+  </div>
+) : (
+  <div className="flex justify-center pt-4">
+   <Link
+  to={`/chat/${_id}?name=${encodeURIComponent(firstName + " " + lastName)}&photo=${encodeURIComponent(photoUrl)}`}
+  className="btn btn-outline btn-info flex-1"
+>
+  Chat
+</Link>
+
+  </div>
+)}
+
       </div>
     </div>
     </div>

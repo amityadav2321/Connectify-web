@@ -40,16 +40,6 @@ const Connections = () => {
     <UserCard key={connection._id} user={connection} showActions={false} />
   ))}
 </div>
-
-    
-  
-  
-  
-  
-  
-  
-  
-  
   
   </div>
   

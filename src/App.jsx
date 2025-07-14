@@ -10,66 +10,27 @@ import Requests from "./components/Requests";
 import ChangePassword from './components/ChangePasword';
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
+import Chat from "./components/Chat";
 
 function App() {
   return (
     <Provider store={appStore}>
       <BrowserRouter basename="/">
         <Routes>
-          <Route path="/" element={<Body />}>
-            {/* Redirect root to feed */}
-            <Route index element={<Navigate to="/feed" replace />} />
+  <Route path="/" element={<Body />}>
+    
+    <Route index element={<Navigate to="/feed" replace />} />
 
-            <Route
-              path="/login"
-              element={
-                <PublicRoute>
-                  <Login />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/feed"
-              element={
-                <ProtectedRoute>
-                  <Feed />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/connections"
-              element={
-                <ProtectedRoute>
-                  <Connections />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/requests"
-              element={
-                <ProtectedRoute>
-                  <Requests />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/changepasword"
-              element={
-                <ProtectedRoute>
-                  <ChangePassword />
-                </ProtectedRoute>
-              }
-            />
-          </Route>
-        </Routes>
+    <Route path="login" element={<PublicRoute><Login /></PublicRoute>} />
+    <Route path="feed" element={<ProtectedRoute><Feed /></ProtectedRoute>} />
+    <Route path="profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+    <Route path="connections" element={<ProtectedRoute><Connections /></ProtectedRoute>} />
+    <Route path="requests" element={<ProtectedRoute><Requests /></ProtectedRoute>} />
+    <Route path="changepasword" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
+    <Route path="chat/:targetUserId" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
+  </Route>
+</Routes>
+
       </BrowserRouter>
     </Provider>
   );
