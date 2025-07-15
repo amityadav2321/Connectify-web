@@ -70,7 +70,9 @@ const Login = () => {
 
   //  Once loading = false, show login form
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden py-12 px-4">
+   <div className="relative min-h-screen flex justify-center items-start bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden pt-14 md:pt-14 px-4">
+
+
       <div className="absolute left-10 bottom-0 w-[200px] h-[600px] bg-gradient-to-t from-purple-500/10 via-transparent to-transparent rotate-12 blur-2xl pointer-events-none" />
       <div className="absolute right-10 top-0 w-[200px] h-[600px] bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent -rotate-12 blur-2xl pointer-events-none" />
 
