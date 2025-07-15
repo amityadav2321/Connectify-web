@@ -3,8 +3,8 @@
 **Connectify** is a full-stack social platform where developers can connect, collaborate, and grow together.  
 This is the **frontend** of the application, built using **React.js**, **Redux Toolkit**, and **Tailwind CSS**, featuring a fully responsive UI, real-time chat, and protected routes.
 
-🔗 Live Site: [https://lnkd.in/gPHW6j7K](https://lnkd.in/gPHW6j7K](https://getconnectify.vercel.app/login))  
-🖥️ Backend Repo: [GitHub Link](https://lnkd.in/giBWPYPp)
+🔗 Live Site: [https://lnkd.in/gPHW6j7K](https://getconnectify.vercel.app/login) 
+🖥️ Backend Repo: [GitHub Link](https://github.com/amityadav2321/Connectify)
 
 ---
 
