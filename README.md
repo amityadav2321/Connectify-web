@@ -1,4 +1,85 @@
-# Connectify
+# 💻 Connectify – Frontend
+
+**Connectify** is a full-stack social platform where developers can connect, collaborate, and grow together.  
+This is the **frontend** of the application, built using **React.js**, **Redux Toolkit**, and **Tailwind CSS**, featuring a fully responsive UI, real-time chat, and protected routes.
+
+🔗 Live Site: [https://lnkd.in/gPHW6j7K](https://lnkd.in/gPHW6j7K)  
+🖥️ Backend Repo: [GitHub Link](https://lnkd.in/giBWPYPp)
+
+---
+
+## 🛠️ Tech Stack
+
+- **React.js** with functional components & hooks
+- **Redux Toolkit** for state management
+- **React Router** for routing
+- **Tailwind CSS** + **DaisyUI** for styling
+- **Socket.IO Client** for real-time chat
+- **Axios** for API requests
+
+---
+
+## 🎯 Features
+
+- 🔐 **Authentication** (Signup/Login) with JWT
+- ✨ **Editable Profile** (name, age, gender, skills, profile photo)
+- 🔄 **Browse & Shuffle Users** (excludes self/rejected)
+- 🤝 **Send, Accept, Reject Connections**
+- 💬 **In-App Chat** using WebSockets
+- 🔓 **Protected Routes**, **Change Password**, **Logout**
+- 📨 **Email Alerts** on signup/login
+- 🦴 **Skeleton Loaders** for improved UX during data loading
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Connectify-notes 
 - Create a vite + React application
 - Remove unwanted files and create a Hello World app
 - Install tailwind css
