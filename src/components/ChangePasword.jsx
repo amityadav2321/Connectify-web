@@ -27,30 +27,44 @@ const ChangePassword = () => {
   };
 
   return (
-    <div className="flex justify-center items-start min-h-screen pt-20 bg-base-200">
-      <div className="card w-full max-w-md bg-base-100 shadow-md p-6">
-        <h2 className="text-2xl font-semibold mb-4 text-center">Change Password</h2>
-        
-        <label className="label">Old Password</label>
+    <div className="relative min-h-screen flex items-start justify-center bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden px-4 pt-24 pb-10">
+      {/* ✨ Decorative gradient bars */}
+      <div className="absolute left-10 bottom-0 w-[200px] h-[600px] bg-gradient-to-t from-purple-500/10 via-transparent to-transparent rotate-12 blur-2xl pointer-events-none"></div>
+      <div className="absolute right-10 top-0 w-[200px] h-[600px] bg-gradient-to-b from-cyan-500/10 via-transparent to-transparent -rotate-12 blur-2xl pointer-events-none"></div>
+
+      {/* 🔒 Card */}
+      <div className="relative z-10 w-full max-w-md bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-xl border border-gray-700 p-8">
+        <h2 className="text-3xl font-extrabold text-white mb-6 text-center">
+          Change Password
+        </h2>
+
+        {/* Old password */}
+        <label className="text-sm text-gray-300">Old Password</label>
         <input
           type="password"
-          className="input input-bordered w-full mb-3"
+          className="w-full px-4 py-2 mt-1 mb-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
           value={oldPassword}
           onChange={(e) => setOldPassword(e.target.value)}
         />
 
-        <label className="label">New Password</label>
+        {/* New password */}
+        <label className="text-sm text-gray-300">New Password</label>
         <input
           type="password"
-          className="input input-bordered w-full mb-4"
+          className="w-full px-4 py-2 mt-1 mb-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
         />
 
-        {error && <p className="text-red-500 text-sm">{error}</p>}
-        {message && <p className="text-green-500 text-sm">{message}</p>}
+        {/* Messages */}
+        {error && <p className="text-red-400 text-sm mb-2">{error}</p>}
+        {message && <p className="text-green-400 text-sm mb-2">{message}</p>}
 
-        <button className="btn btn-primary w-full mt-4" onClick={handleSubmit}>
+        {/* Button */}
+        <button
+          className="w-full py-2 mt-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold hover:opacity-90 transition"
+          onClick={handleSubmit}
+        >
           Update Password
         </button>
       </div>

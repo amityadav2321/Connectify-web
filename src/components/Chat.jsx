@@ -20,36 +20,32 @@ const Chat = () => {
   const [newMessage, setNewMessage] = useState("");
 
   const socketRef = useRef(null);
-  const messageContainerRef = useRef(null); // ✅ container to scroll
+  const messageContainerRef = useRef(null);
 
-  // Scroll to bottom of message container
+  // ✅ Scroll chat to bottom on new message
   const scrollToBottom = () => {
     const container = messageContainerRef.current;
-    if (container) {
-      container.scrollTop = container.scrollHeight;
-    }
+    if (container) container.scrollTop = container.scrollHeight;
   };
 
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
 
-const fetchChatMessages = async () => {
-  try {
-    const res = await axios.get(`${BASE_URL}/chat/${targetUserId}`, {
-      withCredentials: true,
-    });
-
-    const chatMessages = res?.data?.messages.map((msg) => ({
-      text: msg.text,
-      sender: msg.senderId?._id === userId ? "me" : "them", // ✅ Correct comparison
-    }));
-
-    setMessages(chatMessages);
-  } catch (error) {
-    console.error("Failed to fetch chat:", error);
-  }
-};
+  const fetchChatMessages = async () => {
+    try {
+      const res = await axios.get(`${BASE_URL}/chat/${targetUserId}`, {
+        withCredentials: true,
+      });
+      const chatMessages = res?.data?.messages.map((msg) => ({
+        text: msg.text,
+        sender: msg.senderId?._id === userId ? "me" : "them",
+      }));
+      setMessages(chatMessages);
+    } catch (error) {
+      console.error("Failed to fetch chat:", error);
+    }
+  };
 
   useEffect(() => {
     if (!userId) return;
@@ -80,7 +76,6 @@ const fetchChatMessages = async () => {
 
   const handleSend = () => {
     if (newMessage.trim() === "") return;
-
     const socket = socketRef.current;
     if (!socket) return;
 
@@ -99,13 +94,19 @@ const fetchChatMessages = async () => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto my-6 h-[75vh] border border-gray-700 rounded-lg flex flex-col bg-gray-900 text-white">
+  <div className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden flex justify-center pt-10 px-4">
+    {/* ✨ Decorative gradient bars */}
+    <div className="absolute left-10 bottom-0 w-[200px] h-[600px] bg-gradient-to-t from-purple-500/10 via-transparent to-transparent rotate-12 blur-2xl pointer-events-none"></div>
+    <div className="absolute right-10 top-0 w-[200px] h-[600px] bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent -rotate-12 blur-2xl pointer-events-none"></div>
+
+    {/* 💬 Chat Box */}
+    <div className="relative z-10 w-full max-w-3xl h-[80vh] border border-gray-700 rounded-lg flex flex-col bg-gray-900/80 backdrop-blur-md shadow-xl">
       {/* Header */}
-      <div className="p-4 border-b border-gray-700 text-lg font-semibold bg-gray-800 rounded-t-lg">
+      <div className="p-4 border-b border-gray-700 text-lg font-semibold bg-gray-800/80 rounded-t-lg">
         Chat with {theirName}
       </div>
 
-      {/* Message Area */}
+      {/* Messages */}
       <div
         ref={messageContainerRef}
         className="flex-1 p-4 overflow-y-auto space-y-4"
@@ -144,29 +145,31 @@ const fetchChatMessages = async () => {
       </div>
 
       {/* Input */}
-      <div className="flex border-t border-gray-700 p-3 bg-gray-800 rounded-b-lg">
+      <div className="flex border-t border-gray-700 p-3 bg-gray-800/80 rounded-b-lg">
         <input
           type="text"
           placeholder="Type your message..."
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="flex-1 px-4 py-2 rounded-l-md bg-gray-700 text-white focus:outline-none"
+          className="flex-1 px-4 py-2 rounded-l-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
         />
         <button
           onClick={handleSend}
           disabled={!newMessage.trim()}
-          className={` cursor-pointer px-5 py-2 rounded-r-md ${
+          className={`px-5 py-2 rounded-r-md font-semibold transition ${
             newMessage.trim()
-              ? "bg-cyan-600 hover:bg-cyan-700"
-              : "bg-gray-600 cursor-not-allowed"
+              ? "bg-fuchsia-600 hover:bg-fuchsia-700 text-white"
+              : "bg-gray-600 cursor-not-allowed text-gray-300"
           }`}
         >
           Send
         </button>
       </div>
     </div>
-  );
+  </div>
+);
+
 };
 
 export default Chat;
