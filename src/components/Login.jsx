@@ -14,26 +14,12 @@ const Login = () => {
   const [isLoginForm, setIsLoginForm] = useState(false);
   const [error, setError] = useState();
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(true); // 👉 skeleton until fetch done
+  const [loading, setLoading] = useState(true); 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // ✅ Simulate fetch of required data or session check
   useEffect(() => {
-    const fetchInitialData = async () => {
-      try {
-        // For example, check if session exists:
-        await axios.get(BASE_URL + "/profile/view", { withCredentials: true });
-        // You might choose to redirect if user already logged in:
-        // navigate("/");
-      } catch (err) {
-        // no session or ignore
-      } finally {
-        setLoading(false); // ✅ stop skeleton and show form
-      }
-    };
-
-    fetchInitialData();
+    setLoading(false);
   }, []);
 
   const handleSubmit = async (e) => {
@@ -46,7 +32,7 @@ const Login = () => {
           { withCredentials: true }
         );
         dispatch(addUser(res.data.user));
-        return navigate("/");
+        navigate("/");
       } else {
         const res = await axios.post(
           BASE_URL + "/signup",
@@ -54,21 +40,21 @@ const Login = () => {
           { withCredentials: true }
         );
         dispatch(addUser(res.data.data));
-        return navigate("/profile");
+        navigate("/profile");
       }
     } catch (err) {
       setError(err?.response?.data || "Something went wrong");
     }
   };
 
-  // 👉 Skeleton while fetching
+  // Skeleton while loading
   if (loading) {
     return (
       <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden py-12 px-4">
         <div className="absolute left-10 bottom-0 w-[200px] h-[600px] bg-gradient-to-t from-purple-500/10 via-transparent to-transparent rotate-12 blur-2xl pointer-events-none" />
         <div className="absolute right-10 top-0 w-[200px] h-[600px] bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent -rotate-12 blur-2xl pointer-events-none" />
 
-        {/* Skeleton UI */}
+        
         <div className="relative z-10 w-full max-w-md bg-gray-900/80 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-gray-700 animate-pulse">
           <div className="h-8 bg-gray-700 rounded mb-6"></div>
           <div className="h-10 bg-gray-700 rounded mb-4"></div>
@@ -82,7 +68,7 @@ const Login = () => {
     );
   }
 
-  // 👉 Once loading = false, show login form
+  //  Once loading = false, show login form
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden py-12 px-4">
       <div className="absolute left-10 bottom-0 w-[200px] h-[600px] bg-gradient-to-t from-purple-500/10 via-transparent to-transparent rotate-12 blur-2xl pointer-events-none" />

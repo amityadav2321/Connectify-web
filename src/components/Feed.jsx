@@ -28,7 +28,7 @@ const Feed = () => {
 
   
   const SkeletonCard = () => (
-    <div className="w-80 h-[420px] bg-gray-800/50 border border-gray-700 rounded-2xl p-4 animate-pulse shadow-lg">
+    <div className="w-80 h-[450px] bg-gray-800/50 border border-gray-700 rounded-2xl p-4 animate-pulse shadow-lg">
       <div className="w-full h-48 bg-gray-700 rounded-lg mb-4"></div>
       <div className="h-4 bg-gray-700 rounded w-2/3 mb-3"></div>
       <div className="h-3 bg-gray-700 rounded w-1/2 mb-3"></div>
@@ -45,7 +45,7 @@ const Feed = () => {
   );
 
   return (
-    <div className="relative flex flex-col items-center min-h-[80vh] pb-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
+    <div className="relative flex flex-col items-center min-h-[92vh] pb-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
       
       <div className="absolute left-10 bottom-0 w-[200px] h-[600px] bg-gradient-to-t from-purple-500/10 via-transparent to-transparent rotate-12 blur-2xl pointer-events-none"></div>
       <div className="absolute right-10 top-0 w-[200px] h-[600px] bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent -rotate-12 blur-2xl pointer-events-none"></div>
