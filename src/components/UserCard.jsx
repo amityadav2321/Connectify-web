@@ -6,7 +6,7 @@ import { removeFeed } from '../utils/feedSlice';
 import { Link } from 'react-router-dom';
 
 const UserCard = ({ user, showActions = true, showChat = false }) => {
-  if (!user) return null; // ✅ safety check
+  if (!user) return null; 
 
   const {
     _id,
@@ -39,7 +39,7 @@ const UserCard = ({ user, showActions = true, showChat = false }) => {
   return (
     <div className="flex justify-center">
       <div className="card w-96 bg-gray-900/80 text-white shadow-lg backdrop-blur-md border border-gray-700 rounded-xl p-4">
-        {/* 📷 Profile Photo */}
+        
         <div className="flex justify-center">
           <img
             src={photoUrl || "/default-avatar.png"}
@@ -48,7 +48,7 @@ const UserCard = ({ user, showActions = true, showChat = false }) => {
           />
         </div>
 
-        {/* 📝 Basic Info */}
+        
         <h2 className="mt-4 text-xl font-semibold text-cyan-400 text-center">
           {firstName} {lastName}
         </h2>
@@ -57,7 +57,7 @@ const UserCard = ({ user, showActions = true, showChat = false }) => {
         )}
         {about && <p className="text-sm pt-2 text-gray-200 text-center">{truncatedAbout}</p>}
 
-        {/* 🛠 Skills */}
+        
         {skills.length > 0 && (
           <div className="mt-3">
             <p className="text-sm text-gray-400 mb-1">Skills:</p>
@@ -83,7 +83,7 @@ const UserCard = ({ user, showActions = true, showChat = false }) => {
           </div>
         )}
 
-        {/* ✅ Action Buttons */}
+       
         {showActions ? (
           <div className="flex justify-between gap-4 pt-4">
             <button

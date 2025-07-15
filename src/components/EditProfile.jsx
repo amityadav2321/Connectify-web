@@ -40,10 +40,10 @@ const EditProfile = ({ user }) => {
       { withCredentials: true }
     );
 
-    // ✅ Fetch fresh data to ensure all fields sync correctly
+  
     const response = await axios.get(BASE_URL + "/profile/view", { withCredentials: true });
-    dispatch(addUser(response.data)); // CORRECT ✅
- // Fully up-to-date profile
+    dispatch(addUser(response.data)); 
+ 
 
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
@@ -74,21 +74,21 @@ const EditProfile = ({ user }) => {
   return (
      <div className="relative flex flex-col md:flex-row justify-center items-start gap-10 px-4 py-6 text-white min-h-screen bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
 
-      {/* ✨ Left diagonal gradient bar */}
+      
       <div className="absolute left-10 bottom-0 w-[200px] h-[600px] bg-gradient-to-t from-purple-500/10 via-transparent to-transparent rotate-12 blur-2xl pointer-events-none"></div>
 
-      {/* ✨ Right diagonal gradient bar */}
+      
       <div className="absolute right-10 top-0 w-[200px] h-[600px] bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent -rotate-12 blur-2xl pointer-events-none"></div>
-      {/* User Preview Card */}
+      
       <UserCard showActions={false} user={{ firstName, lastName, about, age, photoUrl, gender, skills }} />
 
-      {/* Edit Form */}
+      
       <div className="flex justify-center">
         <div className="card bg-gray-900/80 w-96 shadow-lg backdrop-blur-md rounded-xl border border-gray-700">
           <div className="card-body">
             <h2 className="card-title justify-center text-teal-400">Edit Profile</h2>
 
-            {/* Input Fields */}
+            
             {[
               { label: "First Name", value: firstName, set: setFirstName },
               { label: "Last Name", value: lastName, set: setLastName },
@@ -106,7 +106,7 @@ const EditProfile = ({ user }) => {
               </fieldset>
             ))}
 
-            {/* Gender Select */}
+            
             <fieldset className="pt-2">
               <legend className="text-sm text-gray-400">Gender</legend>
               <select
@@ -121,7 +121,7 @@ const EditProfile = ({ user }) => {
               </select>
             </fieldset>
 
-            {/* About Field */}
+            
             <fieldset className="pt-2">
               <legend className="text-sm text-gray-400">About</legend>
               <textarea
@@ -132,7 +132,7 @@ const EditProfile = ({ user }) => {
               />
             </fieldset>
 
-            {/* Skills Section */}
+            
             <fieldset className="pt-2">
               <legend className="text-sm text-gray-400">Skills</legend>
               <div className="flex items-center gap-2">
@@ -162,7 +162,7 @@ const EditProfile = ({ user }) => {
               </div>
             </fieldset>
 
-            {/* Error & Submit */}
+            
             <p className="text-red-400 mt-2 text-sm">{error}</p>
             <div className="card-actions justify-center mt-4">
               <button
@@ -176,7 +176,7 @@ const EditProfile = ({ user }) => {
         </div>
       </div>
 
-      {/* Toast Message */}
+    
       {showToast && (
         <div className="fixed top-5 left-1/2 transform -translate-x-1/2 z-50">
           <div className="bg-teal-700 text-white px-4 py-2 rounded-md shadow-lg border border-teal-400 animate-fade-in">

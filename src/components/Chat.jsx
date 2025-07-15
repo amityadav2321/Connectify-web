@@ -22,7 +22,7 @@ const Chat = () => {
   const socketRef = useRef(null);
   const messageContainerRef = useRef(null);
 
-  // ✅ Scroll chat to bottom on new message
+  //  Scroll chat to bottom on new message
   const scrollToBottom = () => {
     const container = messageContainerRef.current;
     if (container) container.scrollTop = container.scrollHeight;
@@ -95,18 +95,18 @@ const Chat = () => {
 
   return (
   <div className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden flex justify-center pt-10 px-4">
-    {/* ✨ Decorative gradient bars */}
+    
     <div className="absolute left-10 bottom-0 w-[200px] h-[600px] bg-gradient-to-t from-purple-500/10 via-transparent to-transparent rotate-12 blur-2xl pointer-events-none"></div>
     <div className="absolute right-10 top-0 w-[200px] h-[600px] bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent -rotate-12 blur-2xl pointer-events-none"></div>
 
-    {/* 💬 Chat Box */}
+    
     <div className="relative z-10 w-full max-w-3xl h-[80vh] border border-gray-700 rounded-lg flex flex-col bg-gray-900/80 backdrop-blur-md shadow-xl">
-      {/* Header */}
+      
       <div className="p-4 border-b border-gray-700 text-lg font-semibold bg-gray-800/80 rounded-t-lg">
         Chat with {theirName}
       </div>
 
-      {/* Messages */}
+      
       <div
         ref={messageContainerRef}
         className="flex-1 p-4 overflow-y-auto space-y-4"
@@ -144,7 +144,7 @@ const Chat = () => {
         })}
       </div>
 
-      {/* Input */}
+     
       <div className="flex border-t border-gray-700 p-3 bg-gray-800/80 rounded-b-lg">
         <input
           type="text"

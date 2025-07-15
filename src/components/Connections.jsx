@@ -8,7 +8,7 @@ import UserCard from './UserCard';
 const Connections = () => {
   const connections = useSelector((store) => store.connections);
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true); // ✅ loading state
+  const [loading, setLoading] = useState(true);
 
   const fetchConnections = async () => {
     try {
@@ -53,11 +53,10 @@ const Connections = () => {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden pb-10">
-      {/* ✨ Decorative gradient bars on sides */}
+      
       <div className="absolute left-10 bottom-0 w-[200px] h-[600px] bg-gradient-to-t from-purple-500/10 via-transparent to-transparent rotate-12 blur-2xl pointer-events-none"></div>
       <div className="absolute right-10 top-0 w-[200px] h-[600px] bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent -rotate-12 blur-2xl pointer-events-none"></div>
 
-      {/* Title */}
       <div className="text-center my-10 relative z-10">
         <h1 className="text-4xl font-extrabold text-white drop-shadow-lg">
           Connections

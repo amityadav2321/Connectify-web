@@ -7,7 +7,7 @@ import { addRequest, removeRequest } from '../utils/requestSlice';
 const Requests = () => {
   const requests = useSelector((store) => store.requests);
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true); // 🔥 loading state
+  const [loading, setLoading] = useState(true);
 
   const reviewRequest = async (status, _id) => {
     try {
@@ -25,7 +25,7 @@ const Requests = () => {
     } catch (err) {
       console.error(err);
     } finally {
-      setLoading(false); // ✅ hide skeleton after fetching
+      setLoading(false);
     }
   };
 
@@ -33,11 +33,11 @@ const Requests = () => {
     fetchedRequest();
   }, []);
 
-  // 📌 Skeleton Loader
+ 
   if (loading) {
     return (
       <div className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden flex justify-center items-start pt-16">
-        {/* Decorative bars */}
+       
         <div className="absolute left-10 bottom-0 w-[200px] h-[600px] bg-gradient-to-t from-purple-500/10 via-transparent to-transparent rotate-12 blur-2xl pointer-events-none"></div>
         <div className="absolute right-10 top-0 w-[200px] h-[600px] bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent -rotate-12 blur-2xl pointer-events-none"></div>
 
@@ -47,7 +47,7 @@ const Requests = () => {
               key={idx}
               className="flex items-center justify-between bg-gray-800/50 border border-gray-700 rounded-xl shadow-lg w-full p-4 gap-4 backdrop-blur-md animate-pulse"
             >
-              {/* Left: image skeleton + info skeleton */}
+              
               <div className="flex items-center gap-7">
                 <div className="w-16 h-16 rounded-full bg-gray-700"></div>
                 <div className="space-y-2">
@@ -56,7 +56,7 @@ const Requests = () => {
                   <div className="w-40 h-3 bg-gray-700 rounded"></div>
                 </div>
               </div>
-              {/* Right: buttons skeleton */}
+              
               <div className="flex gap-4 pr-5">
                 <div className="w-16 h-8 bg-gray-700 rounded"></div>
                 <div className="w-16 h-8 bg-gray-700 rounded"></div>
@@ -68,7 +68,7 @@ const Requests = () => {
     );
   }
 
-  // 📌 If fetched but no data
+  //  If fetched but no data
   if (!requests) return null;
   if (requests.length === 0) {
     return (
@@ -80,7 +80,7 @@ const Requests = () => {
     );
   }
 
-  // 📌 Final Render
+  //  Final Render
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden pb-10">
       <div className="absolute left-10 bottom-0 w-[200px] h-[600px] bg-gradient-to-t from-purple-500/10 via-transparent to-transparent rotate-12 blur-2xl pointer-events-none"></div>

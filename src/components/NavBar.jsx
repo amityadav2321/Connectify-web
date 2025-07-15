@@ -45,7 +45,7 @@ const NavBar = () => {
       }`}
     >
       <div className="navbar justify-between">
-        {/* Left side: Logo + Connectify */}
+        
         <div className="flex items-center px-9">
           <Link to="/" className="flex items-center gap-4 text-xl font-bold ">
             <img src="/Logo.png" alt="logo" className="w-8 h-8 rounded-full" />
@@ -53,7 +53,7 @@ const NavBar = () => {
           </Link>
         </div>
 
-        {/* Right side: Welcome and avatar */}
+        
         {user?.firstName && (
           <div className="flex gap-1 items-center px-4">
             <div className="form-control pt-2.">Welcome, {user.firstName}</div>

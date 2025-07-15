@@ -9,7 +9,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 const Feed = () => {
   const feed = useSelector((store) => store.feed);
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true); // ✅ new state for skeleton
+  const [loading, setLoading] = useState(true); 
 
   const getFeed = async () => {
     try {
@@ -18,7 +18,7 @@ const Feed = () => {
     } catch (err) {
       console.error('Failed to fetch feed', err);
     } finally {
-      setLoading(false); // ✅ stop skeleton
+      setLoading(false); 
     }
   };
 
@@ -26,7 +26,7 @@ const Feed = () => {
     getFeed();
   }, []);
 
-  // ✨ Skeleton card
+  
   const SkeletonCard = () => (
     <div className="w-80 h-[420px] bg-gray-800/50 border border-gray-700 rounded-2xl p-4 animate-pulse shadow-lg">
       <div className="w-full h-48 bg-gray-700 rounded-lg mb-4"></div>
@@ -46,11 +46,11 @@ const Feed = () => {
 
   return (
     <div className="relative flex flex-col items-center min-h-[80vh] pb-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-      {/* ✨ Decorative gradient bars */}
+      
       <div className="absolute left-10 bottom-0 w-[200px] h-[600px] bg-gradient-to-t from-purple-500/10 via-transparent to-transparent rotate-12 blur-2xl pointer-events-none"></div>
       <div className="absolute right-10 top-0 w-[200px] h-[600px] bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent -rotate-12 blur-2xl pointer-events-none"></div>
 
-      {/* 🏷️ Heading */}
+      
       <h1 className="text-4xl md:text-5xl font-extrabold text-white mt-5 mb-4 drop-shadow-lg text-center z-10">
         Discover Amazing People
       </h1>
@@ -62,7 +62,7 @@ const Feed = () => {
 
       <div className="z-10">
         {loading ? (
-          // ✅ Skeleton while loading
+          
           <SkeletonCard />
         ) : (
           <AnimatePresence mode="wait">
